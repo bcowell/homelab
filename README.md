@@ -29,12 +29,12 @@ More information can be found in [the roadmap](#roadmap) below.
 ![Hardware](https://user-images.githubusercontent.com/27996771/98970963-25137200-2543-11eb-8f2d-f9a2d45756ef.JPG)
 
 - 4 × NEC SFF `PC-MK26ECZDR` (Japanese version of the ThinkCentre M700):
-    - CPU: `Intel Core i5-6600T @ 2.70GHz`
-    - RAM: `16GB`
-    - SSD: `128GB`
+  - CPU: `Intel Core i5-6600T @ 2.70GHz`
+  - RAM: `16GB`
+  - SSD: `128GB`
 - TP-Link `TL-SG108` switch:
-    - Ports: `8`
-    - Speed: `1000Mbps`
+  - Ports: `8`
+  - Speed: `1000Mbps`
 
 ### Features
 
@@ -57,43 +57,6 @@ More information can be found in [the roadmap](#roadmap) below.
 - [ ] Automated offsite backups 🚧
 - [ ] Single sign-on 🚧
 - [x] Infrastructure testing
-
-Some demo videos and screenshots are shown here.
-They can't capture all the project's features, but they are sufficient to get a concept of it.
-
-| Demo                                                                                        |
-| :--:                                                                                        |
-| [![][deploy-demo]](https://asciinema.org/a/xkBRkwC6e9RAzVuMDXH3nGHp7)                       |
-| Deploy with a single command (after updating the configuration files)                       |
-| [![][pxe-demo]](https://www.youtube.com/watch?v=y-d7btNNAT8)                                |
-| PXE boot                                                                                    |
-| [![][homepage-demo]][homepage-demo]                                                         |
-| Homepage with Ingress discovery powered by [Hajimari](https://github.com/toboshii/hajimari) |
-| [![][grafana-demo]][grafana-demo]                                                           |
-| Monitoring dashboard powered by [Grafana](https://grafana.com/)                             |
-| [![][gitea-demo]][gitea-demo]                                                               |
-| Git server powered by [Gitea](https://gitea.io/en-us/)                                      |
-| [![][matrix-demo]][matrix-demo]                                                             |
-| [Matrix](https://matrix.org/) chat server                                                   |
-| [![][tekton-demo]][tekton-demo]                                                             |
-| Continuous integration with [Tekton](https://tekton.dev/)                                   |
-| [![][argocd-demo]][argocd-demo]                                                             |
-| Continuous deployment with [ArgoCD](https://argoproj.github.io/cd/)                         |
-| [![][lens-demo]][lens-demo]                                                                 |
-| Cluster management using [Lens](https://k8slens.dev/)                                       |
-| [![][vault-demo]][vault-demo]                                                               |
-| Secret management with [Vault](https://www.vaultproject.io/)                                |
-
-[deploy-demo]: https://asciinema.org/a/xkBRkwC6e9RAzVuMDXH3nGHp7.svg
-[pxe-demo]: https://user-images.githubusercontent.com/27996771/157303477-df2e7410-8f02-4648-a86c-71e6b7e89e35.png
-[homepage-demo]: https://user-images.githubusercontent.com/27996771/149445807-0f869eb7-d8f5-4fef-ab97-ac281df91a06.png
-[grafana-demo]: https://user-images.githubusercontent.com/27996771/149446631-1c5d056b-1fdc-48e6-96ba-e1abe1762be0.png
-[gitea-demo]: https://user-images.githubusercontent.com/27996771/149444871-38889c9d-862f-41ff-8c05-8ece21da3e9c.png
-[matrix-demo]: https://user-images.githubusercontent.com/27996771/149448510-7163310c-2049-4ccd-901d-f11f605bfc32.png
-[tekton-demo]: https://user-images.githubusercontent.com/27996771/149445374-58fd0605-bb9a-46e4-81d6-5e584d2b94a9.png
-[argocd-demo]: https://user-images.githubusercontent.com/27996771/149444716-fc0d7282-4cf7-4ddb-97a4-1a3fb47ff2b8.png
-[lens-demo]: https://user-images.githubusercontent.com/27996771/149448896-9d79947d-468c-45c6-a81d-b43654e8ab6b.png
-[vault-demo]: https://user-images.githubusercontent.com/27996771/149452309-de4a893b-e94c-4ba8-9119-ea87449cf77e.png
 
 ### Tech stack
 
@@ -215,28 +178,6 @@ They can't capture all the project's features, but they are sufficient to get a 
     </tr>
 </table>
 
-## Get Started
-
-- [Try it out locally](https://homelab.khuedoan.com/installation/sandbox) without any hardware (just 4 commands!)
-- [Deploy on real hardware](https://homelab.khuedoan.com/installation/production/prerequisites) for production workload
-
-## Roadmap
-
-See [roadmap](https://homelab.khuedoan.com/reference/roadmap) and [open issues](https://github.com/khuedoan/homelab/issues) for a list of proposed features and known issues.
-
-## Contributing
-
-Any contributions you make are greatly appreciated.
-
-Please see [contributing guide](https://homelab.khuedoan.com/reference/contributing) for more information.
-
-## License
-
-Copyright &copy; 2020 - 2022 Khue Doan
-
-Distributed under the GPLv3 License.
-See [license page](https://homelab.khuedoan.com/reference/license) or `LICENSE.md` file for more information.
-
 ## Acknowledgements
 
 References:
@@ -253,24 +194,3 @@ References:
 - [Pre-commit config from k8s-at-home/flux-cluster-template](https://github.com/k8s-at-home/flux-cluster-template)
 - [Diátaxis technical documentation framework](https://diataxis.fr)
 - [Official Terratest examples](https://github.com/gruntwork-io/terratest/tree/master/test)
-
-Here is a list of the contributors who have helped to improve this project.
-Big shout-out to them!
-
-- ![](https://github.com/locmai.png?size=24) [@locmai](https://github.com/locmai)
-- ![](https://github.com/MatthewJohn.png?size=24) [@MatthewJohn](https://github.com/MatthewJohn)
-- ![](https://github.com/karpfediem.png?size=24) [@karpfediem](https://github.com/karpfediem)
-- ![](https://github.com/linhng98.png?size=24) [@linhng98](https://github.com/linhng98)
-- ![](https://github.com/BlueHatbRit.png?size=24) [@BlueHatbRit](https://github.com/BlueHatbRit)
-- ![](https://github.com/dotdiego.png?size=24) [@dotdiego](https://github.com/dotdiego)
-- ![](https://github.com/Crimrose.png?size=24) [@Crimrose](https://github.com/Crimrose)
-- ![](https://github.com/eventi.png?size=24) [@eventi](https://github.com/eventi)
-- ![](https://github.com/Bourne-ID.png?size=24) [@Bourne-ID](https://github.com/Bourne-ID)
-- ![](https://github.com/akwan.png?size=24) [@akwan](https://github.com/akwan)
-- ![](https://github.com/trangmaiq.png?size=24) [@trangmaiq](https://github.com/trangmaiq)
-
-If you feel you're missing from this list, feel free to add yourself in a PR.
-
-## Stargazers over time
-
-[![Stargazers over time](https://starchart.cc/khuedoan/homelab.svg)](https://starchart.cc/khuedoan/homelab)

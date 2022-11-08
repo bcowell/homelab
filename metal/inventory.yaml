@@ -1,0 +1,20 @@
+metal:
+  children:
+    masters:
+      hosts:
+        rock64_a:
+          {
+            ansible_host: 10.0.0.103,
+            mac: "82:95:AE:73:67:34",
+            disk: sda,
+            network_interface: eno1,
+          }
+    workers:
+      hosts:
+        metal3:
+          {
+            ansible_host: 10.0.0.113,
+            mac: "00:23:24:d1:f5:69",
+            disk: sda,
+            network_interface: eno1,
+          }
