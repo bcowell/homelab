@@ -11,12 +11,16 @@ import fileinput
 import subprocess
 import sys
 
-from rich.prompt import Confirm, Prompt
-
 default_seed_repo = "https://github.com/khuedoan/homelab"
 default_domain = "khuedoan.com"
 default_timezone = "Asia/Ho_Chi_Minh"
 default_terraform_workspace = "khuedoan"
+
+editor='nano'
+seed_repo = "https://github.com/bcowell/homelab"
+domain = "bcowell.com"
+timezone = "America/Toronto"
+terraform_workspace = "brayden"
 
 
 def check_python_version(required_version: str) -> None:
@@ -41,11 +45,6 @@ def main() -> None:
     check_python_version(
         required_version='3.10.0'
     )
-
-    editor = Prompt.ask("Select text editor", default='nvim')
-    domain = Prompt.ask("Enter your domain", default=default_domain)
-    seed_repo = Prompt.ask("Enter seed repo", default=default_seed_repo)
-    timezone = Prompt.ask("Enter time zone", default=default_timezone)
 
     find_and_replace(
         pattern=default_domain,
@@ -79,19 +78,12 @@ def main() -> None:
         ]
     )
 
-    if Confirm.ask("Do you want to use managed services?"):
-        terraform_workspace = Prompt.ask("Enter Terraform Workspace", default=default_terraform_workspace)
-
-        find_and_replace(
-            pattern=default_terraform_workspace,
-            replacement=terraform_workspace,
-            paths=[
-                "external/versions.tf"
-            ]
-        )
-
-    subprocess.run(
-        [editor, 'metal/inventories/prod.yml']
+    find_and_replace(
+        pattern=default_terraform_workspace,
+        replacement=terraform_workspace,
+        paths=[
+            "external/versions.tf"
+        ]
     )
 
 
