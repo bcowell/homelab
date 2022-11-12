@@ -1,12 +1,4 @@
-#version=RHEL8
 
-# Do not use graphical install
-text
-
-# Keyboard layouts
-keyboard --xlayouts='us'
-# System language
-lang en_US.UTF-8
 
 # Partition clearing information
 clearpart --all --drives={{ hostvars[item]['disk'] }}
@@ -23,10 +15,7 @@ repo --name="Repository" --baseurl=http://{{ ansible_default_ipv4.address }}/os
 url --url="http://{{ ansible_default_ipv4.address }}/os"
 # Disable Setup Agent on first boot
 firstboot --disable
-# Do not configure the X Window System
-skipx
-# Enable NTP
-services --enabled="chronyd"
+
 # System timezone
 timezone {{ timezone }} --utc
 

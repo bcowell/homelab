@@ -1,0 +1,8 @@
+# If you are required to change your password immediately (root enforced)
+# ansible see the machine state as unreachable at this point
+
+- name: Manually ssh and update expired password
+  hosts: rock64
+  gather_facts: false
+  roles:
+    - change_expired_pass

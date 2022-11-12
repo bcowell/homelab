@@ -1,0 +1,15 @@
+- name: Set password if expired
+  delegate_to: 127.0.0.1
+  become: no
+  expect:
+    command: sshpass -p "{{ default_password }}" ssh -o StrictHostKeyChecking=no {{ ansible_user }}@{{ ansible_host }}
+    timeout: 10
+    responses:
+      "password:":
+        - "{{ default_password }}"
+        - "{{ ansible_password }}"
+        - "{{ ansible_password }}"
+      # if succesfully login then quit
+      "\\~\\]\\$": exit
+  register: status
+  changed_when: "'authentication tokens updated successfully' in status.stdout"
