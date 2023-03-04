@@ -2,38 +2,10 @@
   debug:
     msg:
       - "OS: {{ ansible_distribution }}"
-      - "MAC: {{ ansible_eth0[macaddress]}}"
-      - "IP: {{ ansible_ssh_host }}"
+      - "IP: {{ ansible_host }}"
 
 - name: Set authorized key
   authorized_key:
     user: "{{ ansible_user }}"
-    password: "{{ default_password }}"
     state: present
     key: "{{ ssh_public_key }}"
-    mode: 0644
-# - name: Change default password on first connection
-#   user:
-#     user: "{{ user }}"
-#     password: "{{ new_password }}"
-
-# - name: Make sure we have a 'wheel' group
-#   group:
-#     name: wheel
-#     state: present
-
-# - name: Allow 'wheel' group to have passwordless sudo
-#   lineinfile:
-#     dest: /etc/sudoers
-#     state: present
-#     regexp: '^%wheel'
-#     line: '%wheel ALL=(ALL) NOPASSWD: ALL'
-#     validate: 'visudo -cf %s'
-
-# - name: Add sudoers users to wheel group
-#   user:
-#     name=deployer
-#     groups=wheel
-#     append=yes
-#     state=present
-#     createhome=yes
