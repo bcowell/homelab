@@ -1,5 +1,7 @@
 # Find hardware IPs
 
+Your router's intranet will have a list of connected devices.
+
 You may be able to find the ip with arp
 `arp -an`
 

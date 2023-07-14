@@ -34,13 +34,15 @@ You can also reserve the IP address to the MAC address at this point if you wish
 Like the pi you are required to change your password immediately (root enforced).
 For some reason ansible see the machine state as unreachable at this point, which is very annoying.
 
-You must run the change_expired_pass task for each machine.
+You can run the change_expired_pass task for each machine, which will ssh in with the
+default root password and update it to the value in group_vars.
 
 ```
 ansible-playbook change_expired_pass.yaml
 ```
 
-Once that's ran and changed the default password to the one set in variables. Test the SSH connection with `ansible rock64 -m ping`
+Once that's ran and changed the default password to the one set in variables. 
+Test the SSH connection with `cd metal && ansible rock64 -m ping`
 
 ---
 

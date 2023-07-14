@@ -31,7 +31,10 @@ In the future maybe I'll comeback and see if I can get PXE booting to work, but 
 
 # Setup
 
-Install [Terraform](https://developer.hashicorp.com/terraform/downloads), [Packer](https://developer.hashicorp.com/packer/downloads) and Ansible
+You'll need the following installed:
+- [Terraform](https://developer.hashicorp.com/terraform/downloads)
+- [Packer](https://developer.hashicorp.com/packer/downloads)
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 Would recommend to use brew over python to install
 `brew install ansible`
