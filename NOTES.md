@@ -7,8 +7,10 @@
   - 2x [ROCK64 PoE hats](https://pine64.com/product/rock64-quartz64-model-b-poe-add-on-board/)
 - 1x Raspberry Pi 4B - 4GB
   - [UCTRONICS PoE hat](https://www.uctronics.com/tools-and-accessories/pi-accessories/uctronics-poe-hat-ieee-5v-2-5a-mini-power-over-ethernet-expansion-board.html)
-- 3x [Silicon Power SSDs - 1TB & 512GB](https://a.co/d/hlKWpGv)
-- [TP-Link 5 Port Gigabit PoE Switch - TL-SG1005P](https://a.co/d/33y9pDA)
+- 3x [Silicon Power SSDs - 1TB & 512GB]
+  - [Buy on Amazon](https://a.co/d/hlKWpGv)
+- [TP-Link 5 Port Gigabit PoE Switch - TL-SG1005P](https://www.tp-link.com/ca/business-networking/unmanaged-switch/tl-sg1005p/v4/)
+  - [Buy on Amazon](https://a.co/d/33y9pDA)
 - [C4Labs Cloudlet Cluster Case](https://www.c4labs.com/product/cloudlet-cluster-case-raspberry-pi/)
 
 Preface with I have no idea what I'm doing
@@ -18,7 +20,9 @@ And that is assuming you want this thing for the novelty like I do. It would lik
 
 <Add case issues and pains here>
 
-You may want to check the power draw if you use all four PoE ports of the switch with a board and SSD. 56W for my three ports hasn't exploded yet
+You may want to check the power draw if you use all four PoE ports of the switch with USB peripherals.
+The TP-Link switch is PoE+ (802.3at). It says it supports up to 30 W for each PoE port, with a total maximum of up to 65 W for all 4 PoE ports.
+Unfortunately all the PoE hats I found use the 802.3af standard. Which only guarantees up to about 13W
 
 <Thank Khuedan>
 

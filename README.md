@@ -1,30 +1,6 @@
 # Khue's Homelab
 
-**[Features](#features) • [Get Started](#get-started) • [Documentation](https://homelab.khuedoan.com)**
-
-[![tag](https://img.shields.io/github/v/tag/khuedoan/homelab?style=flat-square&logo=semver&logoColor=white)](https://github.com/khuedoan/homelab/tags)
-[![document](https://img.shields.io/website?label=document&logo=gitbook&logoColor=white&style=flat-square&url=https%3A%2F%2Fhomelab.khuedoan.com)](https://homelab.khuedoan.com)
-[![license](https://img.shields.io/github/license/khuedoan/homelab?style=flat-square&logo=gnu&logoColor=white)](https://www.gnu.org/licenses/gpl-3.0.html)
-[![stars](https://img.shields.io/github/stars/khuedoan/homelab?logo=github&logoColor=white&color=gold&style=flat-square)](https://github.com/khuedoan/homelab)
-
-This project utilizes [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_code) and [GitOps](https://www.weave.works/technologies/gitops) to automate provisioning, operating, and updating self-hosted services in my homelab.
-It can be used as a highly customizable framework to build your own homelab.
-
-> **What is a homelab?**
->
-> Homelab is a laboratory at home where you can self-host, experiment with new technologies, practice for certifications, and so on.
-> For more information about homelab in general, see the [r/homelab introduction](https://www.reddit.com/r/homelab/wiki/introduction).
-
-## Overview
-
-Project status: **ALPHA**
-
-This project is still in the experimental stage, and I don't use anything critical on it.
-Expect breaking changes that may require a complete redeployment.
-A proper upgrade path is planned for the stable release.
-More information can be found in [the roadmap](#roadmap) below.
-
-### Hardware
+## Hardware
 
 ![Hardware](https://user-images.githubusercontent.com/27996771/98970963-25137200-2543-11eb-8f2d-f9a2d45756ef.JPG)
 
@@ -36,7 +12,7 @@ More information can be found in [the roadmap](#roadmap) below.
   - Ports: `8`
   - Speed: `1000Mbps`
 
-### Features
+## Features
 
 - [x] Common applications: Gitea, Seafile, Jellyfin, Paperless...
 - [x] Automated bare metal provisioning with PXE boot
@@ -58,7 +34,7 @@ More information can be found in [the roadmap](#roadmap) below.
 - [ ] Single sign-on 🚧
 - [x] Infrastructure testing
 
-### Tech stack
+## Tech stack
 
 <table>
     <tr>
@@ -160,11 +136,6 @@ More information can be found in [the roadmap](#roadmap) below.
         <td><img width="32" src="https://avatars.githubusercontent.com/u/47602533?s=200&v=4"></td>
         <td><a href="https://tekton.dev">Tekton</a></td>
         <td>Cloud native solution for building CI/CD systems</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://trow.io/trow.png"></td>
-        <td><a href="https://trow.io">Trow</a></td>
-        <td>Private container registry</td>
     </tr>
     <tr>
         <td><img width="32" src="https://simpleicons.org/icons/vault.svg"></td>
