@@ -1,167 +1,281 @@
-# Khue's Homelab
+# Brayden's Homelab
 
-## Hardware
+[Images]
+[image description]
 
-![Hardware](https://user-images.githubusercontent.com/27996771/98970963-25137200-2543-11eb-8f2d-f9a2d45756ef.JPG)
+# Components
 
-- 4 × NEC SFF `PC-MK26ECZDR` (Japanese version of the ThinkCentre M700):
-  - CPU: `Intel Core i5-6600T @ 2.70GHz`
-  - RAM: `16GB`
-  - SSD: `128GB`
-- TP-Link `TL-SG108` switch:
-  - Ports: `8`
-  - Speed: `1000Mbps`
+- 2x [ROCK64 - 4GB](https://pine64.com/product/rock64-4gb-single-board-computer/)
+  - 2x [ROCK64 PoE hats](https://pine64.com/product/rock64-quartz64-model-b-poe-add-on-board/)
+- 1x Raspberry Pi 4B - 4GB
+  - [UCTRONICS PoE hat](https://www.uctronics.com/tools-and-accessories/pi-accessories/uctronics-poe-hat-ieee-5v-2-5a-mini-power-over-ethernet-expansion-board.html)
+- 3x Cheap SSDs - 1TB & 2x 512GB
+  - [Buy on Amazon](https://a.co/d/hlKWpGv)
+- [TP-Link 5 Port Gigabit PoE Switch - TL-SG1005P](https://www.tp-link.com/ca/business-networking/unmanaged-switch/tl-sg1005p/v4/)
+  - [Buy on Amazon](https://a.co/d/33y9pDA)
+- [TP-Link AC750 Wireless Travel Router - TL-WR902AC](https://www.tp-link.com/ca/home-networking/wifi-router/tl-wr902ac/)
+  - [Buy on Amazon](https://a.co/d/cZdRKha)
+- [C4Labs Cloudlet Cluster Case](https://www.c4labs.com/product/cloudlet-cluster-case-raspberry-pi/)
 
-## Features
+# Preface
 
-- [x] Common applications: Gitea, Seafile, Jellyfin, Paperless...
-- [x] Automated bare metal provisioning with PXE boot
-- [x] Automated Kubernetes installation and management
-- [x] Installing and managing applications using GitOps
-- [x] Automatic rolling upgrade for OS and Kubernetes
-- [x] Automatically update apps (with approval)
-- [x] Modular architecture, easy to add or remove features/components
-- [x] Automated certificate management
-- [x] Automatically update DNS records for exposed services
-- [x] VPN without port forwarding
-- [x] Expose services to the internet securely with [Cloudflare Tunnel](https://www.cloudflare.com/products/tunnel/)
-- [x] CI/CD platform
-- [x] Private container registry
-- [x] Distributed storage
-- [x] Support multiple environments (dev, prod)
-- [ ] Monitoring and alerting 🚧
-- [ ] Automated offsite backups 🚧
-- [ ] Single sign-on 🚧
-- [x] Infrastructure testing
+Preface with I have no idea what I'm doing
 
-## Tech stack
+Good luck finding a raspberry pi. You can try rpilocator, but for the price; ROCK64 or alternative boards are hands-down the way to go.
+And that is assuming you want this thing for the novelty like I do. It would likely be a lot smarter to just get some mini assembled PCs.
 
-<table>
-    <tr>
-        <th>Logo</th>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://simpleicons.org/icons/ansible.svg"></td>
-        <td><a href="https://www.ansible.com">Ansible</a></td>
-        <td>Automate bare metal provisioning and configuration</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.svg"></td>
-        <td><a href="https://argoproj.github.io/cd">ArgoCD</a></td>
-        <td>GitOps tool built to deploy applications to Kubernetes</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://github.com/jetstack/cert-manager/raw/master/logo/logo.png"></td>
-        <td><a href="https://cert-manager.io">cert-manager</a></td>
-        <td>Cloud native certificate management</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://avatars.githubusercontent.com/u/314135?s=200&v=4"></td>
-        <td><a href="https://www.cloudflare.com">Cloudflare</a></td>
-        <td>DNS and Tunnel</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"></td>
-        <td><a href="https://www.docker.com">Docker</a></td>
-        <td>Ephemeral PXE server and convenient tools container</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://github.com/kubernetes-sigs/external-dns/raw/master/docs/img/external-dns.png"></td>
-        <td><a href="https://github.com/kubernetes-sigs/external-dns">ExternalDNS</a></td>
-        <td>Synchronizes exposed Kubernetes Services and Ingresses with DNS providers</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Fedora_logo.svg/267px-Fedora_logo.svg.png"></td>
-        <td><a href="https://getfedora.org/en/server">Fedora Server</a></td>
-        <td>Base OS for Kubernetes nodes</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Gitea_Logo.svg"></td>
-        <td><a href="https://gitea.com">Gitea</a></td>
-        <td>Self-hosted Git service</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://grafana.com/static/img/menu/grafana2.svg"></td>
-        <td><a href="https://grafana.com">Grafana</a></td>
-        <td>Operational dashboards</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://cncf-branding.netlify.app/img/projects/helm/icon/color/helm-icon-color.svg"></td>
-        <td><a href="https://helm.sh">Helm</a></td>
-        <td>The package manager for Kubernetes</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://cncf-branding.netlify.app/img/projects/k3s/icon/color/k3s-icon-color.svg"></td>
-        <td><a href="https://k3s.io">K3s</a></td>
-        <td>Lightweight distribution of Kubernetes</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://cncf-branding.netlify.app/img/projects/kubernetes/icon/color/kubernetes-icon-color.svg"></td>
-        <td><a href="https://kubernetes.io">Kubernetes</a></td>
-        <td>Container-orchestration system, the backbone of this project</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://github.com/grafana/loki/blob/main/docs/sources/logo.png?raw=true"></td>
-        <td><a href="https://grafana.com/oss/loki">Loki</a></td>
-        <td>Log aggregation system</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://cncf-branding.netlify.app/img/projects/longhorn/icon/color/longhorn-icon-color.svg"></td>
-        <td><a href="https://longhorn.io">Longhorn</a></td>
-        <td>Cloud native distributed block storage for Kubernetes</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://avatars.githubusercontent.com/u/60239468?s=200&v=4"></td>
-        <td><a href="https://metallb.org">MetalLB</a></td>
-        <td>Bare metal load-balancer for Kubernetes</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://avatars.githubusercontent.com/u/1412239?s=200&v=4"></td>
-        <td><a href="https://www.nginx.com">NGINX</a></td>
-        <td>Kubernetes Ingress Controller</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://cncf-branding.netlify.app/img/projects/prometheus/icon/color/prometheus-icon-color.svg"></td>
-        <td><a href="https://prometheus.io">Prometheus</a></td>
-        <td>Systems monitoring and alerting toolkit</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://docs.renovatebot.com/assets/images/logo.png"></td>
-        <td><a href="https://www.whitesourcesoftware.com/free-developer-tools/renovate">Renovate</a></td>
-        <td>Automatically update dependencies</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://avatars.githubusercontent.com/u/47602533?s=200&v=4"></td>
-        <td><a href="https://tekton.dev">Tekton</a></td>
-        <td>Cloud native solution for building CI/CD systems</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://simpleicons.org/icons/vault.svg"></td>
-        <td><a href="https://www.vaultproject.io">Vault</a></td>
-        <td>Secrets and encryption management system</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://docs.zerotier.com/img/ZeroTierIcon.png"></td>
-        <td><a href="https://zerotier.com">ZeroTier</a></td>
-        <td>VPN without port forwarding</td>
-    </tr>
-</table>
+<Add case issues and pains here>
 
-## Acknowledgements
+You may want to check the power draw if you use all four PoE ports of the switch with USB peripherals.
+The TP-Link switch is PoE+ (802.3at). It says it supports up to 30 W for each PoE port, with a total maximum of up to 65 W for all 4 PoE ports.
+Unfortunately all the PoE hats I found use the 802.3af standard. Which only guarantees up to about 13W
 
-References:
+<Thank Khuedan>
 
-- [Ephemeral PXE server inspired by Minimal First Machine in the DC](https://speakerdeck.com/amcguign/minimal-first-machine-in-the-dc)
-- [ArgoCD usage and monitoring configuration in locmai/humble](https://github.com/locmai/humble)
-- [README template](https://github.com/othneildrew/Best-README-Template)
-- [Run the same Cloudflare Tunnel across many `cloudflared` processes](https://developers.cloudflare.com/cloudflare-one/tutorials/many-cfd-one-tunnel)
-- [MAC address environment variable in GRUB config](https://askubuntu.com/questions/1272400/how-do-i-automate-network-installation-of-many-ubuntu-18-04-systems-with-efi-and)
-- [Official k3s systemd service file](https://github.com/k3s-io/k3s/blob/master/k3s.service)
-- [Official Cloudflare Tunnel examples](https://github.com/cloudflare/argo-tunnel-examples)
-- [Initialize GitOps repository on Gitea and integrate with Tekton by RedHat](https://github.com/redhat-scholars/tekton-tutorial/tree/master/triggers)
-- [SSO configuration from xUnholy/k8s-gitops](https://github.com/xUnholy/k8s-gitops)
-- [Pre-commit config from k8s-at-home/flux-cluster-template](https://github.com/k8s-at-home/flux-cluster-template)
-- [Diátaxis technical documentation framework](https://diataxis.fr)
-- [Official Terratest examples](https://github.com/gruntwork-io/terratest/tree/master/test)
+How my project differs high-level and link to architecture
+In the future maybe I'll comeback and see if I can get PXE booting to work, but not sure I see the value given how fun it is to setup the OS and SSDs by hand.
+
+# Architecture
+
+## Overview
+
+```
++--------------+
+|    ./apps    |
+|--------------|
+|  ./platform  |
+|--------------|       +------------+
+|   ./system   |- - - -| ./external |
+|--------------|       +------------+
+| ./bootstrap  |
+|--------------|
+|   ./metal    |
+|--------------|
+|   HARDWARE   |
++--------------+
+```
+
+Main components:
+
+- `./metal`: bare metal management, install Linux and Kubernetes
+- `./bootstrap`: GitOps bootstrap with ArgoCD
+- `./system`: critical system components for the cluster (load balancer, storage, ingress, operation tools...)
+- `./platform`: essential components for service hosting platform (vault, git...)
+- `./apps`: user facing applications
+- `./external` (optional): externally managed services
+
+Support components:
+
+- `./tools`: tools container, includes all the tools you'll need
+- `./docs`: all documentation go here, this will generate a searchable web UI
+- `./scripts`: scripts to automate common tasks
+
+## Provisioning flow
+
+Everything will eventually be automated. After you edit the configuration files, you just need to run a single `make` command and it will:
+
+- (1) Build the `./metal` layer:
+  - Create an ephemeral, stateless PXE server
+  - Install Linux on all servers in parallel
+  - Build a Kubernetes cluster (based on k3s)
+- (2) Build the `./bootstrap` layer:
+  - Install ArgoCD
+  - Configure the root app to manage other layers (and also manage itself)
+
+From now on, ArgoCD will do the rest:
+
+- (3) Build the `./system` layer (storage, networking, monitoring, etc)
+- (4) Build the `./platform` layer (Gitea, Vault, SSO, etc)
+- (5) Build the `./apps` layer: (Syncthing, Jellyfin, etc)
+
+```mermaid
+flowchart TD
+  subgraph metal[./metal]
+    pxe[PXE Server] -.-> linux[Fedora Server] --> k3s
+  end
+
+  subgraph bootstrap[./bootstrap]
+    argocd[ArgoCD] --> rootapp[Root app]
+  end
+
+  subgraph system[./system]
+    metallb[MetalLB]
+    nginx[NGINX]
+    longhorn[Longhorn]
+    cert-manager
+    external-dns[External DNS]
+    cloudflared
+  end
+
+  subgraph external[./external]
+    letsencrypt[Let's Encrypt]
+    cloudflare[Cloudflare]
+  end
+
+  letsencrypt -.-> cert-manager
+  cloudflare -.-> cert-manager
+  cloudflare -.-> external-dns
+  cloudflare -.-> cloudflared
+
+  subgraph platform
+    gitea[Gitea]
+    tekton[Tekton]
+    vault[Vault]
+  end
+
+  subgraph apps
+    jellyfin[Jellyfin]
+    matrix[Matrix]
+    paperless[Paperless]
+    seafile[Seafile]
+  end
+
+  make[Run make] -- 1 --> metal -- 2 --> bootstrap -. 3 .-> system -. 4 .-> platform -. 5 .-> apps
+```
+
+Below is the pseudo code for the entire process, you don't have to read it right now, but it will be handy for debugging.
+
+??? detailed "Detailed provisioning flow"
+
+    ```
+    Human run make:
+        build ./metal:
+            install the OS:
+                    install the OS based on the init config:
+                        configure the system
+                        remaining files required to install
+                    reboot to the new OS
+                controller see the machines are ready
+            build a Kubernetes cluster:
+                download k3s binary
+                generate cluster token
+                copy k3s config files
+                enable k3s service and form a cluster
+                create KUBECONFIG file
+                create MetalLB config:
+                    use the last /27 subnet of the network
+                    apply the config
+        build ./bootstrap:
+            install ArgoCD:
+                apply helm chart
+                wait for status
+            install root app:
+                select values file:
+                    if Gitea unreachable (first install):
+                        get data from GitHub
+                    else:
+                        get data from Gitea
+                apply helm chart
+                wait for status
+    ArgoCD apply the rest:
+        clone git repo
+        install components based on directories:
+            ./bootstrap (it manages itself):
+                argocd
+                root
+            ./system:
+                storage
+                loadbalancer
+                ingress
+                etc
+            ./platform (depends on ./system):
+                git:
+                    migrate the homelab repository from GitHub
+                    ArgoCD switch the source from GitHub to Gitea
+                ci
+                vault
+                etc
+            ./apps (depends on ./system and ./platform):
+                homepage
+                jellyfin
+                etc
+    ```
+
+# Getting Started
+
+You'll need the following installed:
+
+- [Terraform](https://developer.hashicorp.com/terraform/downloads)
+- [Packer](https://developer.hashicorp.com/packer/downloads)
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
+Would recommend to use brew over python to install Ansible
+
+```
+brew install ansible
+```
+
+Generate an ssh-key with `./scripts/ssh-keygen.sh`
+
+## Metal
+
+### Packer
+
+### Terraform
+
+### Ansible
+
+[Ansible Getting Started Docs](https://docs.ansible.com/ansible/latest/getting_started/index.html)
+
+Ansible Inventory can be found in `/metal/inventory.yaml`
+
+# Rough Notes
+
+https://www.reddit.com/r/homelab/wiki/introduction/
+https://github.com/mikeroyal/Self-Hosting-Guide
+
+## Look into
+
+- Terraform
+- Ansible
+- rke https://registry.terraform.io/providers/rancher/rke/latest
+- traefik
+- portainer
+
+- tailscale
+- Cloud flare tunnel
+- Wireguard
+- Openvpn
+
+- Apache Guacamole
+- Qbittorrent
+- Speedflux
+
+## apps
+
+- Secret management
+  - Vaultwarden
+- Storage
+  - Nextcloud https://nextcloud.com/
+  - myDrive https://github.com/subnub/myDrive
+- Media server
+  - jellyfin, emby
+- Media server management
+  - sonarr - manage & download TV shows
+  - radarr - manage & download movies
+  - overseerr/Ombi - request content for media server
+  - Prowlarr
+  - requestrr
+  - tautulli - monitor plex
+- Monitoring
+  - grafana
+  - prometheus
+  - healthchecks.io / Uptime kuma
+
+## system
+
+## infra
+
+## To Install
+
+- K3s
+- Pihole https://github.com/pi-hole/pi-hole
+
+## Ideas
+
+- Dashboard
+- Media vault
+- Display my apple to do list
+- Scrape events from city website, filters for low - capacity, time, type
+- CI/CD
+  Homepage with Ingress discovery powered by [Hajimari](https://github.com/toboshii/hajimari)
