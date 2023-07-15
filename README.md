@@ -37,6 +37,22 @@ In the future maybe I'll comeback and see if I can get PXE booting to work, but 
 
 # Architecture
 
+## Tech stack
+
+<table>
+  <tr>
+      <th>Logo</th>
+      <th>Name</th>
+      <th>Description</th>
+  </tr>
+  <tr>
+        <td>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" fill="none" viewBox="0 0 144 144"><path fill="#7B42BC" fill-rule="evenodd" d="m55.522 32.97 32.96 19.02v38.06l-32.96-19.03V32.97ZM92.09 51.99v38.06l32.95-19.03V32.97L92.09 51.99ZM18.96 11.73v38.05l32.95 19.03V30.76L18.96 11.73ZM55.522 113.24l32.95 19.03V94.22l-32.95-19.03v38.05Z" clip-rule="evenodd"></path></svg></td>
+        <td><a href="https://www.terraform.io/">Terraform</a></td>
+        <td>Automate, provision and manage infrastructure in any cloud</td>
+    </tr>
+</table>
+
 ## Overview
 
 ```
@@ -62,7 +78,7 @@ Main components:
 - `./system`: critical system components for the cluster (load balancer, storage, ingress, operation tools...)
 - `./platform`: essential components for service hosting platform (vault, git...)
 - `./apps`: user facing applications
-- `./external` (optional): externally managed services
+- `./external` (optional): externally managed services (cloudflare DNS/Tunnel, ZeroTier VPN, Terraform Cloud)
 
 Support components:
 
@@ -72,6 +88,7 @@ Support components:
 
 ## Provisioning flow
 
+<details>
 Everything will eventually be automated. After you edit the configuration files, you just need to run a single `make` command and it will:
 
 - (1) Build the `./metal` layer:
@@ -191,7 +208,18 @@ Below is the pseudo code for the entire process, you don't have to read it right
                 etc
     ```
 
+</details>
+
 # Getting Started
+
+## Metal
+
+### Prerequisites
+
+- Setup devices.
+  - See [docs/metal/rock64.md](docs/metal/rock64.md) or [docs/metal/rpi.md](docs/metal/rpi.md)
+- Format SSDs
+  - See [docs/metal/storage.md](docs/metal/storage.md)
 
 You'll need the following installed:
 
@@ -207,17 +235,11 @@ brew install ansible
 
 Generate an ssh-key with `./scripts/ssh-keygen.sh`
 
-## Metal
+Ansible Inventory can be found in `/metal/inventory.yaml`
 
-### Packer
-
-### Terraform
-
-### Ansible
+### Resources
 
 [Ansible Getting Started Docs](https://docs.ansible.com/ansible/latest/getting_started/index.html)
-
-Ansible Inventory can be found in `/metal/inventory.yaml`
 
 # Rough Notes
 

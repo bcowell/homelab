@@ -65,12 +65,20 @@ dd if=/dev/sda of=/dev/sdb bs=64K conv=noerror,sync status=progress
 
 or
 
-`sudo cp -avx / /mnt/data`
-`sudo nano /boot/efi/extlinux/extlinux.conf`
-changing the label to your SSD
-`sudo reboot`
-`sudo lsblk -f`
+```
+sudo cp -avx / /mnt/data
+sudo nano /boot/efi/extlinux/extlinux.conf
+```
 
-`sudo umount /dev/sda1`
+changing the label to your SSD
+
+```
+sudo reboot
+sudo lsblk -f
+
+sudo umount /dev/sda1
+```
 
 ## Boot from SSD
+
+TODO
