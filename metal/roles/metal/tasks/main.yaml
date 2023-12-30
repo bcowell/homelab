@@ -3,9 +3,56 @@
     msg:
       - "OS: {{ ansible_distribution }}"
       - "IP: {{ ansible_host }}"
+      - "Setting ssh pub key for {{ ansible_user }}"
 
-- name: Set authorized key
+- name: Make sure we have a 'wheel' group
+  group:
+    name: wheel
+    state: present
+
+- name: Allow 'wheel' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
+- name: Add user to wheel group
+  user:
+    name: "{{ ansible_user }}"
+    groups: wheel
+    append: yes
+    state: present
+    createhome: yes
+
+# https://docs.ansible.com/ansible/latest/collections/ansible/posix/authorized_key_module.html
+- name: Set authorized key for admin user
   authorized_key:
     user: "{{ ansible_user }}"
     state: present
     key: "{{ ssh_public_key }}"
+
+- name: Add hardened SSH config
+  copy:
+    src: files/sshd_config
+    dest: /etc/ssh/sshd_config
+    mode: 0600
+    owner: "{{ ansible_user }}"
+    group: wheel
+  notify: Restart sshd
+
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html
+- name: Create data mount directory - if it does not exist
+  file:
+    path: /data
+    state: directory
+    mode: 0755
+
+# https://docs.ansible.com/ansible/latest/collections/ansible/posix/mount_module.html
+- name: Mount SSD to /data
+  mount:
+    path: /data
+    src: "{{ disk_src }}"
+    fstype: ext4
+    state: present

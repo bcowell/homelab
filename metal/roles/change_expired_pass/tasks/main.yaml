@@ -1,6 +1,5 @@
 - name: Set password if expired
   delegate_to: 127.0.0.1
-  become: no
   expect:
     command: sshpass -p "{{ default_password }}" ssh -o StrictHostKeyChecking=no {{ ansible_user }}@{{ ansible_host }}
     timeout: 10

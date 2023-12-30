@@ -217,7 +217,7 @@ Below is the pseudo code for the entire process, you don't have to read it right
 ### Prerequisites
 
 - Setup devices.
-  - See [docs/metal/rock64.md](docs/metal/rock64.md) or [docs/metal/rpi.md](docs/metal/rpi.md)
+  - See [docs/metal/rock64.md](docs/metal/rock64.md) or [docs/metal/pi.md](docs/metal/pi.md)
 - Format SSDs
   - See [docs/metal/storage.md](docs/metal/storage.md)
 

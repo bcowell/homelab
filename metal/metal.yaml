@@ -2,3 +2,7 @@
   hosts: rock64
   roles:
     - metal
+  # We use root on the initial setup in order to edit the users, groups and setup secure ssh
+  become: true
+  vars:
+    ansible_become_pass: "{{ ansible_password }}"

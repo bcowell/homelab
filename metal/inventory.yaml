@@ -4,14 +4,14 @@ metal:
       hosts:
         rock64_a:
           {
-            ansible_host: 10.0.0.103,
+            ansible_host: 192.168.2.40,
             mac: "82:95:AE:73:67:34",
-            disk: sda,
+            disk_src: UUID=0492a4c9-c1d8-41d3-b06d-761a8529e13a,
             network_interface: eno1,
           }
-    rpi:
+    pi:
       hosts:
-        rpi_a:
+        pi_a:
           {
             ansible_host: 10.0.0.113,
             mac: "00:23:24:d1:f5:69",

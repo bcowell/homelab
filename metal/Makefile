@@ -4,7 +4,7 @@ default: cluster
 	ssh-keygen -t ed25519 -P '' -f "$@"
 
 cluster:
-	ansible-playbook cluster.yml
+	ansible-playbook cluster.yaml
 
 console:
 	ansible-console
